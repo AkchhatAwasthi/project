@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '@/data/blogPosts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -52,6 +53,34 @@ const BlogListing = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Helmet>
+        {/* Basic SEO */}
+        <title>Restaurant Growth Blog | Expert Tips & Strategies | GoalCraft Consultancy</title>
+        <meta name="description" content="Expert insights, proven strategies, and real success stories to accelerate your restaurant's growth on Swiggy and Zomato. Get actionable tips from GoalCraft's restaurant consultants." />
+        <meta name="keywords" content="restaurant blog, Swiggy tips, Zomato marketing, restaurant growth, food delivery optimization, menu engineering, restaurant consulting, GoalCraft blog" />
+        <link rel="canonical" href="https://goalcraftconsultancy.netlify.app/blog" />
+        
+        {/* Technical SEO */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Restaurant Growth Blog | Expert Tips & Strategies | GoalCraft Consultancy" />
+        <meta property="og:description" content="Expert insights, proven strategies, and real success stories to accelerate your restaurant's growth on Swiggy and Zomato." />
+        <meta property="og:url" content="https://goalcraftconsultancy.netlify.app/blog" />
+        <meta property="og:image" content="https://goalcraftconsultancy.netlify.app/assets/og-image.jpg" />
+        <meta property="og:site_name" content="GoalCraft Consultancy" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Restaurant Growth Blog | Expert Tips & Strategies | GoalCraft Consultancy" />
+        <meta name="twitter:description" content="Expert insights, proven strategies, and real success stories to accelerate your restaurant's growth on Swiggy and Zomato." />
+        <meta name="twitter:image" content="https://goalcraftconsultancy.netlify.app/assets/twitter-image.jpg" />
+        <meta name="twitter:site" content="@goalcraft_consultants" />
+      </Helmet>
+      
       <Header />
       
       <main className="flex-1">

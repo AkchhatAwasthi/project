@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '@/data/blogPosts';
 import { BlogPost as BlogPostType } from '@/types/blog';
 import Header from '@/components/Header';
@@ -40,8 +41,82 @@ const BlogPost = () => {
     });
   };
 
+  // Generate SEO metadata
+  const getMetaDescription = () => {
+    if (post.description) {
+      return post.description.length > 160 
+        ? post.description.substring(0, 157) + '...'
+        : post.description;
+    }
+    // Fallback to first 150 characters of content (strip HTML)
+    const textContent = post.content.replace(/<[^>]*>/g, '');
+    return textContent.length > 150 
+      ? textContent.substring(0, 147) + '...'
+      : textContent;
+  };
+
+  const canonicalUrl = `https://goalcraftconsultancy.netlify.app/blog/${post.slug}`;
+  const metaDescription = getMetaDescription();
+  
+  // Generate keywords from category and title
+  const generateKeywords = () => {
+    const baseKeywords = [
+      'restaurant growth',
+      'Swiggy optimization',
+      'Zomato marketing',
+      'food delivery',
+      'restaurant consulting',
+      'GoalCraft'
+    ];
+    
+    // Add category-specific keywords
+    const categoryKeywords = post.category.toLowerCase().split(' ');
+    
+    // Add title-based keywords (extract meaningful words)
+    const titleWords = post.title.toLowerCase()
+      .split(' ')
+      .filter(word => word.length > 3 && !['the', 'and', 'for', 'with', 'your'].includes(word));
+    
+    return [...baseKeywords, ...categoryKeywords, ...titleWords].join(', ');
+  };
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Helmet>
+        {/* Basic SEO */}
+        <title>{post.title} | GoalCraft Consultancy</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={generateKeywords()} />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Technical SEO */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph (Facebook, LinkedIn, etc.) */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={post.bannerImage} />
+        <meta property="og:site_name" content="GoalCraft Consultancy" />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:published_time" content={post.publishedDate} />
+        <meta property="article:section" content={post.category} />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={post.bannerImage} />
+        <meta name="twitter:site" content="@goalcraft_consultants" />
+        <meta name="twitter:creator" content="@goalcraft_consultants" />
+        
+        {/* Additional structured data hints */}
+        <meta name="author" content={post.author} />
+        <meta name="article:tag" content={generateKeywords()} />
+      </Helmet>
+      
       <Header />
       
       <main className="flex-1">

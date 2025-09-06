@@ -10,4 +10,5 @@ export interface BlogPost {
   publishedDate: string;
   bannerImage: string;
   icon: string;
+  keywords?: string; // Optional field for custom keywords
 }
