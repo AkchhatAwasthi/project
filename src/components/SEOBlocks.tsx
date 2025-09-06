@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { blogPosts } from '@/data/blogPosts';
+import { getBlogPosts } from '@/utils/blogUtils';
 import { ExternalLink, Clock, Users, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SEOBlocks = () => {
+  const blogPosts = getBlogPosts();
+  
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
       case 'TrendingUp':

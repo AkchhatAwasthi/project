@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { blogPosts } from '@/data/blogPosts';
+import { getBlogPosts } from '@/utils/blogUtils';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Calendar, User, Clock, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const BlogListing = () => {
+  const blogPosts = getBlogPosts();
   const [visiblePosts, setVisiblePosts] = useState(6);
   const [isVisible, setIsVisible] = useState(false);
 

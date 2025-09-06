@@ -8,16 +8,18 @@ import Index from "./pages/Index";
 import BlogListing from "./pages/BlogListing";
 import NotFound from "./pages/NotFound";
 
-// Import static blog pages
-import BoostRestaurantSalesSwiggyZomato from "./pages/blogs/boost-restaurant-sales-swiggy-zomato";
-import MenuEngineeringRestaurantProfits from "./pages/blogs/menu-engineering-restaurant-profits";
-import CustomerRetentionStrategiesRestaurants from "./pages/blogs/customer-retention-strategies-restaurants";
-import DigitalMarketingStrategiesRestaurants from "./pages/blogs/digital-marketing-strategies-restaurants";
-import RestaurantCostManagementGuide from "./pages/blogs/restaurant-cost-management-guide";
-import FoodDeliveryTrends2024 from "./pages/blogs/food-delivery-trends-2024";
-import RestaurantBrandingCompleteGuide from "./pages/blogs/restaurant-branding-complete-guide";
-import KalikaHutRestaurantRevenueCaseStudy from "./pages/blogs/kalika-hut-restaurant-revenue-case-study";
+// Dynamic blog imports
+import { lazy } from "react";
 
+// Lazy load blog components
+const BoostRestaurantSalesSwiggyZomato = lazy(() => import("./pages/blogs/boost-restaurant-sales-swiggy-zomato"));
+const MenuEngineeringRestaurantProfits = lazy(() => import("./pages/blogs/menu-engineering-restaurant-profits"));
+const CustomerRetentionStrategiesRestaurants = lazy(() => import("./pages/blogs/customer-retention-strategies-restaurants"));
+const DigitalMarketingStrategiesRestaurants = lazy(() => import("./pages/blogs/digital-marketing-strategies-restaurants"));
+const RestaurantCostManagementGuide = lazy(() => import("./pages/blogs/restaurant-cost-management-guide"));
+const FoodDeliveryTrends2024 = lazy(() => import("./pages/blogs/food-delivery-trends-2024"));
+const RestaurantBrandingCompleteGuide = lazy(() => import("./pages/blogs/restaurant-branding-complete-guide"));
+const KalikaHutRestaurantRevenueCaseStudy = lazy(() => import("./pages/blogs/kalika-hut-restaurant-revenue-case-study"));
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -31,11 +33,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<BlogListing />} />
             
-            {/* Static blog pages */}
-            <Route path="/blogs/10-proven-strategies-boost-swiggy-restaurant-rankings" element={<BoostRestaurantSalesSwiggyZomato />} />
+            {/* Blog pages - automatically mapped */}
             <Route path="/blogs/boost-restaurant-sales-swiggy-zomato" element={<BoostRestaurantSalesSwiggyZomato />} />
             <Route path="/blogs/menu-engineering-restaurant-profits" element={<MenuEngineeringRestaurantProfits />} />
-            <Route path="/blogs/menu-psychology-design-menus-drive-sales" element={<MenuEngineeringRestaurantProfits />} />
             <Route path="/blogs/customer-retention-strategies-restaurants" element={<CustomerRetentionStrategiesRestaurants />} />
             <Route path="/blogs/digital-marketing-strategies-restaurants" element={<DigitalMarketingStrategiesRestaurants />} />
             <Route path="/blogs/restaurant-cost-management-guide" element={<RestaurantCostManagementGuide />} />
@@ -43,7 +43,6 @@ const App = () => (
             <Route path="/blogs/restaurant-branding-complete-guide" element={<RestaurantBrandingCompleteGuide />} />
             <Route path="/blogs/kalika-hut-restaurant-revenue-case-study" element={<KalikaHutRestaurantRevenueCaseStudy />} />
             
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
