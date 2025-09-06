@@ -16,6 +16,7 @@ import DigitalMarketingStrategiesRestaurants from "./pages/blogs/digital-marketi
 import RestaurantCostManagementGuide from "./pages/blogs/restaurant-cost-management-guide";
 import FoodDeliveryTrends2024 from "./pages/blogs/food-delivery-trends-2024";
 import RestaurantBrandingCompleteGuide from "./pages/blogs/restaurant-branding-complete-guide";
+import KalikaHutRestaurantRevenueCaseStudy from "./pages/blogs/kalika-hut-restaurant-revenue-case-study";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/blogs/restaurant-cost-management-guide" element={<RestaurantCostManagementGuide />} />
             <Route path="/blogs/food-delivery-trends-2024" element={<FoodDeliveryTrends2024 />} />
             <Route path="/blogs/restaurant-branding-complete-guide" element={<RestaurantBrandingCompleteGuide />} />
+            <Route path="/blogs/kalika-hut-restaurant-revenue-case-study" element={<KalikaHutRestaurantRevenueCaseStudy />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
