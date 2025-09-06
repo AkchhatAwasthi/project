@@ -39,7 +39,7 @@ const SEOBlocks = () => {
               key={index} 
               className="group bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
             >
-              <Link to={`/blog/${article.slug}`}>
+              <Link to={`/blogs/${article.slug}`}>
                 <div className="mb-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
