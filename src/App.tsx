@@ -34,6 +34,7 @@ const App = () => (
             <Route path="/blogs/10-proven-strategies-boost-swiggy-restaurant-rankings" element={<BoostRestaurantSalesSwiggyZomato />} />
             <Route path="/blogs/boost-restaurant-sales-swiggy-zomato" element={<BoostRestaurantSalesSwiggyZomato />} />
             <Route path="/blogs/menu-engineering-restaurant-profits" element={<MenuEngineeringRestaurantProfits />} />
+            <Route path="/blogs/menu-psychology-design-menus-drive-sales" element={<MenuEngineeringRestaurantProfits />} />
             <Route path="/blogs/customer-retention-strategies-restaurants" element={<CustomerRetentionStrategiesRestaurants />} />
             <Route path="/blogs/digital-marketing-strategies-restaurants" element={<DigitalMarketingStrategiesRestaurants />} />
             <Route path="/blogs/restaurant-cost-management-guide" element={<RestaurantCostManagementGuide />} />
