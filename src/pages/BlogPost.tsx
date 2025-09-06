@@ -79,42 +79,113 @@ const BlogPost = () => {
     
     return [...baseKeywords, ...categoryKeywords, ...titleWords].join(', ');
   };
+
+  // SEO field getters with fallbacks
+  const getSeoTitle = () => {
+    return post.seoTitle || `${post.title} | GoalCraft Consultancy`;
+  };
+
+  const getSeoDescription = () => {
+    return post.seoDescription || metaDescription;
+  };
+
+  const getSeoKeywords = () => {
+    if (post.seoKeywords && post.seoKeywords.length > 0) {
+      return post.seoKeywords.join(', ');
+    }
+    return generateKeywords();
+  };
+
+  const getSeoCanonical = () => {
+    return post.seoCanonical || canonicalUrl;
+  };
+
+  const getSeoImage = () => {
+    return post.seoImage || post.bannerImage;
+  };
+
+  const getSeoRobots = () => {
+    return post.seoRobots || 'index, follow';
+  };
+
+  const getSeoLocale = () => {
+    return post.seoLocale || 'en_US';
+  };
+
+  // Generate structured data (JSON-LD)
+  const generateStructuredData = () => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": getSeoDescription(),
+      "image": getSeoImage(),
+      "author": {
+        "@type": "Person",
+        "name": post.author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GoalCraft Consultancy",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://goalcraftconsultancy.netlify.app/src/assets/logo.png"
+        }
+      },
+      "datePublished": post.publishedDate,
+      "dateModified": post.publishedDate,
+      "url": getSeoCanonical(),
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": getSeoCanonical()
+      },
+      "articleSection": post.category,
+      "keywords": getSeoKeywords()
+    };
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Helmet>
         {/* Basic SEO */}
-        <title>{post.title} | GoalCraft Consultancy</title>
-        <meta name="description" content={metaDescription} />
-        <meta name="keywords" content={generateKeywords()} />
-        <link rel="canonical" href={canonicalUrl} />
+        <title>{getSeoTitle()}</title>
+        <meta name="description" content={getSeoDescription()} />
+        <meta name="keywords" content={getSeoKeywords()} />
+        <link rel="canonical" href={getSeoCanonical()} />
         
         {/* Technical SEO */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={getSeoRobots()} />
         
         {/* Open Graph (Facebook, LinkedIn, etc.) */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={post.bannerImage} />
+        <meta property="og:title" content={getSeoTitle()} />
+        <meta property="og:description" content={getSeoDescription()} />
+        <meta property="og:url" content={getSeoCanonical()} />
+        <meta property="og:image" content={getSeoImage()} />
         <meta property="og:site_name" content="GoalCraft Consultancy" />
+        <meta property="og:locale" content={getSeoLocale()} />
         <meta property="article:author" content={post.author} />
         <meta property="article:published_time" content={post.publishedDate} />
         <meta property="article:section" content={post.category} />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={metaDescription} />
-        <meta name="twitter:image" content={post.bannerImage} />
+        <meta name="twitter:title" content={getSeoTitle()} />
+        <meta name="twitter:description" content={getSeoDescription()} />
+        <meta name="twitter:image" content={getSeoImage()} />
         <meta name="twitter:site" content="@goalcraft_consultants" />
         <meta name="twitter:creator" content="@goalcraft_consultants" />
         
         {/* Additional structured data hints */}
         <meta name="author" content={post.author} />
-        <meta name="article:tag" content={generateKeywords()} />
+        <meta name="article:tag" content={getSeoKeywords()} />
+        
+        {/* Structured Data (JSON-LD) */}
+        <script type="application/ld+json">
+          {JSON.stringify(generateStructuredData())}
+        </script>
       </Helmet>
       
       <Header />
