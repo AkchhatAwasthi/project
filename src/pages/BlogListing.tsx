@@ -112,7 +112,7 @@ const BlogListing = () => {
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <Link to={`/blog/${post.slug}`} className="block">
+                  <Link to={`/blogs/${post.slug}`} className="block">
                     {/* Post Image */}
                     <div className="aspect-video overflow-hidden">
                       <img
