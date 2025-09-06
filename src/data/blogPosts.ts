@@ -1215,7 +1215,7 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li>Participate in Swiggy campaigns</li>
         <li>Use sponsored listings strategically</li>
-        <li>Offer exclusive Swiggy discounts</li>
+    slug: "digital-marketing-strategies-restaurants",
         <li>Join festival and seasonal promotions</li>
       </ul>
       
@@ -1227,7 +1227,7 @@ export const blogPosts: BlogPost[] = [
         <li>Regular quality checks</li>
         <li>Use fresh ingredients consistently</li>
       </ul>
-      
+    slug: "restaurant-cost-management-guide",
       <h2>8. Optimize for Search Keywords</h2>
       <p>Help customers find you easily:</p>
       <ul>
@@ -1239,7 +1239,7 @@ export const blogPosts: BlogPost[] = [
       
       <h2>9. Monitor Analytics and Adapt</h2>
       <p>Data-driven decisions lead to better results:</p>
-      <ul>
+    slug: "food-delivery-trends-2024",
         <li>Track your restaurant's performance metrics</li>
         <li>Analyze customer ordering patterns</li>
         <li>Identify peak ordering times</li>
@@ -1251,7 +1251,7 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li>Maintain consistent branding across all touchpoints</li>
         <li>Create memorable packaging</li>
-        <li>Develop signature dishes</li>
+    slug: "restaurant-branding-complete-guide",
         <li>Build social media presence</li>
       </ul>
       
