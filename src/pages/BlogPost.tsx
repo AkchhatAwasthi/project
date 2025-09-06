@@ -55,7 +55,7 @@ const BlogPost = () => {
       : textContent;
   };
 
-  const canonicalUrl = `https://goalcraftconsultancy.netlify.app/blog/${post.slug}`;
+  const canonicalUrl = `https://goalcraft.app/blog/${post.slug}`;
   const metaDescription = getMetaDescription();
   
   // Generate keywords from category and title
