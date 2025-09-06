@@ -40,6 +40,15 @@ export const blogPosts: BlogPost[] = [
         <li>Respond to all customer reviews promptly</li>
         <li>Address negative feedback professionally</li>
         <li>Encourage satisfied customers to leave reviews</li>
+    
+    // Custom SEO fields for this specific blog post
+    seoTitle: "10 Proven Strategies to Boost Restaurant Sales on Swiggy & Zomato | GoalCraft Expert Guide",
+    seoDescription: "Discover 10 actionable strategies from GoalCraft experts to increase your restaurant's visibility, orders, and revenue on Swiggy & Zomato. Proven techniques that work in 2024.",
+    seoKeywords: ["restaurant sales boost", "Swiggy optimization", "Zomato marketing", "food delivery growth", "restaurant revenue increase", "menu optimization", "combo pricing strategy", "delivery platform success"],
+    seoCanonical: "https://goalcraftconsultancy.netlify.app/blog/boost-restaurant-sales-swiggy-zomato",
+    seoImage: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630",
+    seoRobots: "index, follow",
+    seoLocale: "en_US"
         <li>Maintain a rating above 4.0</li>
       </ul>
       
