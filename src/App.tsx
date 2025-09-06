@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound";
 import { lazy } from "react";
 
 // Lazy load blog components
-const BoostRestaurantSalesSwiggyZomato = lazy(() => import("./pages/blogs/boost-restaurant-sales-swiggy-zomato"));
+const BoostRestaurantSalesSwiggyZomato = lazy(() => import("/home/project/src/pages/blogs/boost-restaurant-sales-swiggy-zomato.tsx"));
 const MenuEngineeringRestaurantProfits = lazy(() => import("./pages/blogs/menu-engineering-restaurant-profits"));
 const CustomerRetentionStrategiesRestaurants = lazy(() => import("./pages/blogs/customer-retention-strategies-restaurants"));
 const DigitalMarketingStrategiesRestaurants = lazy(() => import("./pages/blogs/digital-marketing-strategies-restaurants"));
