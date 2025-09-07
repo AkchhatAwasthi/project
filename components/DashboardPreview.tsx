@@ -54,5 +54,9 @@ const DashboardPreview = () => {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+};
 
 export default DashboardPreview;
