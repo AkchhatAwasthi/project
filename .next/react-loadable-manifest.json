@@ -1,1 +1,14 @@
-{}
+{
+  "pages/_app.tsx -> @/components/ui/sonner": {
+    "id": "pages/_app.tsx -> @/components/ui/sonner",
+    "files": [
+      "static/chunks/components_ui_sonner_tsx.js"
+    ]
+  },
+  "pages/_app.tsx -> @/components/ui/toaster": {
+    "id": "pages/_app.tsx -> @/components/ui/toaster",
+    "files": [
+      "static/chunks/components_ui_toaster_tsx.js"
+    ]
+  }
+}
