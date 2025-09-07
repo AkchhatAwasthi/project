@@ -1,4 +1,3 @@
-@@ .. @@
  import React, { useState, useEffect } from 'react';
 -import unorganizedMenu from '@/assets/unorganized-menu.jpg';
 -import organizedMenu from '@/assets/organized-menu.jpg';
