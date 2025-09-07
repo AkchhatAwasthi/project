@@ -11,3 +11,5 @@
      </div>
    );
  };
+
+export default Logo

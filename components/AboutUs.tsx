@@ -4,3 +4,4 @@
 
  const AboutUs = () => {
    const [isVisible, setIsVisible] = useState(false);
+ }
