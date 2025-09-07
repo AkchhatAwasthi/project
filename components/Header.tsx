@@ -44,7 +44,8 @@
 +    if (router.pathname !== '/') {
 +      router.push(`/#${targetId}`);
 +    } else {
-+      const element = document.getElementById(targetId);
++      c
+}onst element = document.getElementById(targetId);
 +      if (element) {
 +        element.scrollIntoView({
 +          behavior: 'smooth',
