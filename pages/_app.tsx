@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
